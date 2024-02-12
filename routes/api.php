@@ -33,8 +33,8 @@ Route::get('/dogs/{id}', [DogsController::class, 'show']);
 Route::get('/feedbacks', [FeedbacksController::class, 'index']);
 Route::get('/feedbacks/{id}', [FeedbacksController::class, 'show']);
 
-Route::post('/register-admin', [AuthController::class, 'registerAdmin']);
 Route::middleware('role')->group(function() {
+    Route::post('/register-admin', [AuthController::class, 'registerAdmin']);
 
     Route::post('/dogs', [DogsController::class, 'store']);
     Route::put('/dogs/{id}', [DogsController::class, 'update']);
