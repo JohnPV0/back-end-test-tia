@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Feedback;
 use App\Models\Dog;
+use App\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
@@ -106,5 +107,8 @@ class DatabaseSeeder extends Seeder
             'comment' => 'Lo mejor en cuidado de mascotas, recomendado',
             'photo' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV1OaBc6dMQDEAQkgnu8f3JVaiSQSs_Ibh2w&usqp=CAU'
         ]);
+
+        Role::create(['name' => 'admin']);
+        Role::create(['name' => 'user']);
     }
 }
