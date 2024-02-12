@@ -72,7 +72,8 @@ class FeedbacksController extends Controller
     public function store(Request $request)
     {
         try {
-            $validator = Validator::make($request->all(), [
+            $data = $request->all();
+            $validator = Validator::make($data, [
                 'name' => 'required',
                 'comment' => 'required',
                 'photo' => 'required'
@@ -82,12 +83,7 @@ class FeedbacksController extends Controller
                 return $this->sendError($validator->errors(), 'Validation Error', 400);
             }
 
-            $feedback = new Feedback();
-            $feedback->name = $request->name;
-            $feedback->comment = $request->comment;
-            $feedback->photo = $request->photo;
-            $feedback->save();
-
+            $feedback = Feedback::create($data);
             $success['feedback'] = $feedback;
             return $this->sendResponse($success, 'Feedback created successfully', 201);
         } catch (\Exception $e) {

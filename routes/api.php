@@ -42,7 +42,7 @@ Route::middleware('role')->group(function() {
 
     Route::post('/feedbacks', [FeedbacksController::class, 'store']);
     Route::put('/feedbacks/{id}', [FeedbacksController::class, 'update']);
-    Route::delete('/feedbacks/{id}', [FeedbacksController::class, 'destroy ']);
+    Route::delete('/feedbacks/{id}', [FeedbacksController::class, 'destroy']);
 
 });
 
